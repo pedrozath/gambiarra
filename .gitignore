@@ -9,3 +9,6 @@
 
 # rspec failure tracking
 .rspec_status
+
+# Local project files
+.DS_Store
