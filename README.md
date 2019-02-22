@@ -1,6 +1,6 @@
 # Why?
 
-https://medium.com/@pedrozath/building-an-user-friendly-cli-ui-d8469c52a0d5?source=your_stories_page---------------------------
+https://medium.com/@pedrozath/building-an-user-friendly-cli-ui-d8469c52a0d5
 
 # Gambiarra
 
