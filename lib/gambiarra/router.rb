@@ -18,7 +18,7 @@ module Gambiarra
       path = params.delete(:path)
       @url  = build_url(path || history.current_route.path, **params)
       route = routes.detect { |route| route.path == path }
-      return history.refresh(params) unless route
+      return history.refresh(**params) unless route
       history.add(route)
       route.respond(**params)
     end
@@ -29,7 +29,7 @@ module Gambiarra
 
     private
 
-    def build_url(path, params)
+    def build_url(path, **params)
       [
         path,
         (params || {}).map do |k,v|

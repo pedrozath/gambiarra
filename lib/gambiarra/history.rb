@@ -22,13 +22,13 @@ module Gambiarra
       routes.pop.respond
     end
 
-    def refresh(params={})
+    def refresh(**params)
       return {
         content: 'Abnormal end',
         path: 'exit'
       } unless current_route
 
-      current_route.respond(params)
+      current_route.respond(**params)
     end
   end
 end
