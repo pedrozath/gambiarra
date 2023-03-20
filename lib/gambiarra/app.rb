@@ -22,8 +22,8 @@ module Gambiarra
         end
       end
 
-      response = {path: (path || ''), **params}
-      loop { response = app.flow(**response) }
+      responses = [{ path: (path || ''), **params }]
+      loop { responses << (app.flow(**responses.last) || {}) }
     end
 
     def self.app
@@ -31,7 +31,6 @@ module Gambiarra
     end
 
     def initialize(debugging: false)
-      debugging = true
       setup if respond_to?(:setup)
       @debugging = debugging
       @router = Router.new
@@ -71,7 +70,7 @@ module Gambiarra
       self.class.to_s.split('::').first.underscore.gsub('_', '-')
     end
 
-    def flow(response)
+    def flow(**response)
       raise 'Response is empty' unless response
       output(response)
       response.delete(:content)
